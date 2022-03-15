@@ -33,12 +33,12 @@ const useStyles = makeStyles({
     const classes = useStyles();
   
     return (
-        <div className='home'>
+        <div className='home' >
         <div className='cards'>
       <Card className={classes.root1}>
         <div className='card'>
         <CardActionArea>
-          <CardMedia component="img" alt="done" height="140" image='done.svg' title="done"/>
+          <img component="img" alt="done" className='cardimg' width='100%' height="140" src={require(`./pending.svg`).default}/>   
           <CardContent>
             <div className='topic'>
             <Typography  gutterBottom variant="h5" component="h2">
@@ -55,7 +55,7 @@ const useStyles = makeStyles({
         </CardActionArea>
         <CardActions className='btn'>
           <Button  size="small" color="primary" >
-            Learn More
+            View All
           </Button>
         </CardActions>
         </div>
@@ -63,7 +63,7 @@ const useStyles = makeStyles({
       <Card className={classes.root2}>
         <div className='card'>
         <CardActionArea>
-          <CardMedia component="img" alt="done" height="140" image='done.svg' title="done"/>
+          <CardMedia component="img" alt="done" height="140" image={require(`./inprogress.svg`).default} title="done"/>
           <CardContent>
             <div className='topic'>
             <Typography  gutterBottom variant="h5" component="h2">
@@ -79,8 +79,8 @@ const useStyles = makeStyles({
           </CardContent>
         </CardActionArea>
         <CardActions className='btn'>
-          <Button  size="small" color="primary" >
-            Learn More
+          <Button  size="small" color="primary" className='btn2' >
+            View All
           </Button>
         </CardActions>
         </div>
@@ -88,7 +88,7 @@ const useStyles = makeStyles({
       <Card className={classes.root3}>
         <div className='card'>
         <CardActionArea>
-          <CardMedia component="img" alt="done" height="140" image='done.svg' title="done"/>
+        <img component="img" alt="done" className='cardimg' width='100%' height="140" src={require(`./done.svg`).default}/>
           <CardContent>
             <div className='topic'>
             <Typography  gutterBottom variant="h5" component="h2">
@@ -105,7 +105,7 @@ const useStyles = makeStyles({
         </CardActionArea>
         <CardActions className='btn'>
           <Button  size="small" color="primary" >
-            Learn More
+            View All
           </Button>
         </CardActions>
         </div>

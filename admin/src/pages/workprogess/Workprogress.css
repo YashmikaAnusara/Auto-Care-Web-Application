@@ -2,7 +2,10 @@
     flex: 4;
 }
 .btn{
-    margin-left: 110px;
+    margin-left: 120px;
+}
+.btn{
+    margin-top: 55px;
 }
 .topic{
     text-align: center;
@@ -15,4 +18,8 @@
 }
 .cards{
     display: flex;
+    margin-top: 30px;
+}
+.cardimg{
+    object-fit:fill;
 }
