@@ -255,7 +255,7 @@ function TransitionRight(props) {
     <TextField id="stype" className="size2" select label="Service Type" value={stype} onChange={(e) => {setstype(e.target.value);}} name="stype" SelectProps={{native: true,}} variant="outlined" required>
       <option value=""></option>
       <option value="Full Service">Full Service</option>
-      <option value="Non-Permanent">Normal Service</option>
+      <option value="Normal Service">Normal Service</option>
       </TextField>
       <TextField id="addinfo" label="Enter the Employee Additional Information"  multiline rows={3} variant="outlined" className='size3' value={addinfo} onChange={(e) => {setaddinfo(e.target.value);}}/>
       </form>

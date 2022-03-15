@@ -1,6 +1,7 @@
 import React from 'react';
 import { useEffect,useState } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 import "./Pendingpage.css"
 
 export default function Pendingpage({search,setSearch}){
@@ -40,6 +41,10 @@ export default function Pendingpage({search,setSearch}){
             <td className="table-clo4">{servicedetails.cemail}</td>
             <td className="table-clo5">{servicedetails.stype}</td>
             <td className="table-clo6">{servicedetails.cnumber}</td>
+            <td><Link to={`/workprogress/${servicedetails._id}`}>
+                <button  size="small" color="primary" >View All</button>
+                </Link>
+            </td>
           </tr>
         );
       };
@@ -47,13 +52,13 @@ export default function Pendingpage({search,setSearch}){
     return(
         <div className="home">
             <h1 className="heading">Pending Services</h1>
-            <input placeholder="Enter the NIC Number" className="searchbox" type="search" onChange={(e) => setSearch(e.target.value)}/>
+            <input placeholder="Enter Customer Vehicle Number " className="searchbox" type="search" onChange={(e) => setSearch(e.target.value)}/>
             {/* <div ref={componentRef}> */}
             <table className="table-report">
             <thead>
               <tr>
                 <th>Customer Name</th>
-                <th>Customer Vehicle number</th>
+                <th>Customer Vehicle Number</th>
                 <th>Customer Email</th>
                 <th>Vehicle Service Type</th>
                 <th>Customer Mobile Number</th>
