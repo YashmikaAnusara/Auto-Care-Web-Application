@@ -1,3 +1,18 @@
 .home{
     flex: 4;
 }
+.btn{
+    margin-left: 110px;
+}
+.topic{
+    text-align: center;
+}
+.par{
+    text-align: justify
+}
+.card{
+    height: 400px;
+}
+.cards{
+    display: flex;
+}

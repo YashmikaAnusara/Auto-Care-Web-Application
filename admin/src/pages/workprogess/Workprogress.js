@@ -11,9 +11,22 @@ import './Workprogress.css'
 
 
 const useStyles = makeStyles({
-    root: {
+    
+    root1: {
       maxWidth: 345,
+      background: '#00bfff4f',
+      margin:'auto',
     },
+    root2: {
+        maxWidth: 345,
+        background: '#ffb8007d',
+        margin:'auto',
+      },
+    root3: {
+        maxWidth: 345,
+        background: '#75e86c80',
+        margin:'auto',
+      },
   });
   
   export default function Workprogress() {
@@ -21,35 +34,85 @@ const useStyles = makeStyles({
   
     return (
         <div className='home'>
-      <Card className={classes.root}>
+        <div className='cards'>
+      <Card className={classes.root1}>
+        <div className='card'>
         <CardActionArea>
-          <CardMedia
-            component="img"
-            alt="Contemplative Reptile"
-            height="140"
-            image="/static/images/cards/contemplative-reptile.jpg"
-            title="Contemplative Reptile"
-          />
+          <CardMedia component="img" alt="done" height="140" image='done.svg' title="done"/>
           <CardContent>
-            <Typography gutterBottom variant="h5" component="h2">
-              Lizard
+            <div className='topic'>
+            <Typography  gutterBottom variant="h5" component="h2">
+                Pending Services
             </Typography>
+            </div>
+            <div className='par'>
             <Typography variant="body2" color="textSecondary" component="p">
               Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
               across all continents except Antarctica
             </Typography>
+            </div>
           </CardContent>
         </CardActionArea>
-        <CardActions>
-          <Button size="small" color="primary">
-            Share
-          </Button>
-          <Button size="small" color="primary">
+        <CardActions className='btn'>
+          <Button  size="small" color="primary" >
             Learn More
           </Button>
         </CardActions>
+        </div>
       </Card>
+      <Card className={classes.root2}>
+        <div className='card'>
+        <CardActionArea>
+          <CardMedia component="img" alt="done" height="140" image='done.svg' title="done"/>
+          <CardContent>
+            <div className='topic'>
+            <Typography  gutterBottom variant="h5" component="h2">
+                In Progress Services
+            </Typography>
+            </div>
+            <div className='par'>
+            <Typography variant="body2" color="textSecondary" component="p">
+              Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
+              across all continents except Antarctica
+            </Typography>
+            </div>
+          </CardContent>
+        </CardActionArea>
+        <CardActions className='btn'>
+          <Button  size="small" color="primary" >
+            Learn More
+          </Button>
+        </CardActions>
+        </div>
+      </Card>
+      <Card className={classes.root3}>
+        <div className='card'>
+        <CardActionArea>
+          <CardMedia component="img" alt="done" height="140" image='done.svg' title="done"/>
+          <CardContent>
+            <div className='topic'>
+            <Typography  gutterBottom variant="h5" component="h2">
+                Finish Services
+            </Typography>
+            </div>
+            <div className='par'>
+            <Typography variant="body2" color="textSecondary" component="p">
+              Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
+              across all continents except Antarctica
+            </Typography>
+            </div>
+          </CardContent>
+        </CardActionArea>
+        <CardActions className='btn'>
+          <Button  size="small" color="primary" >
+            Learn More
+          </Button>
+        </CardActions>
+        </div>
+      </Card> 
       </div>
+      </div>
+      
     );
   }
   
