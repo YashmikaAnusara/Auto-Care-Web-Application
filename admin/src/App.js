@@ -6,6 +6,7 @@ import Home from "./pages/home/Home";
 import Addservice from "./pages/addservices/Addservices";
 import Workprogress from "./pages/workprogess/Workprogress";
 import Pendingpage from "./pages/pending page/Pendingpage";
+import Startservice from "./pages/start service/Startservice";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
@@ -35,6 +36,10 @@ function App() {
           <Pendingpage setSearch={setSearch} search={search}/>
           </Route>
 
+          <Route exact path="/workprogress/startservice/:id">
+          <Startservice/>
+          </Route>
+          
        </Switch>
      </div>
     </Router>

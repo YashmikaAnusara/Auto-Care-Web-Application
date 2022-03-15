@@ -1,10 +1,11 @@
 const router = require("express").Router();
-let Service = require("../models/addServicemodel");
-let details = require("../models/addv");
+let Pending = require("../models/addServicemodel");
 let Inprogress = require("../models/inprogressService");
 
+let details = require("../models/addv");
 
-//Database data insert
+
+//Pending Service Part Apis
 router.route("/addservice").post((req,res)=>{
 
     const name = req.body.fname;
@@ -15,7 +16,7 @@ router.route("/addservice").post((req,res)=>{
     const cnumber =Number(req.body.cnumber);
     const addinfo = req.body.addinfo;
     
-    const newservice = new Service({
+    const newservice = new Pending({
         name,
         nic,
         vnumber,
@@ -32,7 +33,6 @@ router.route("/addservice").post((req,res)=>{
     
 })
 
-//Database data view all
 router.route("/").get((req,res)=>{
 
     details.find().then((curds)=>{
@@ -42,7 +42,6 @@ router.route("/").get((req,res)=>{
     })
 })
 
-//Database data view all
 router.route("/pending").get((req,res)=>{
 
     Service.find().then((curds)=>{
@@ -52,6 +51,17 @@ router.route("/pending").get((req,res)=>{
     })
 })
 
+router.route("/pending/delete/:id").delete((req,res)=>{
+    let id=req.params.id
+
+    Service.findByIdAndDelete({_id:id}).then((curds)=>{
+        res.json(curds)
+    }).catch((err)=>{
+        console.log(err);
+    })
+})
+
+//Inprogress Service Part Apis
 router.route("/inprogress/:id").get((req,res)=>{
     let id=req.params.id
 
@@ -62,6 +72,35 @@ router.route("/inprogress/:id").get((req,res)=>{
     })
 
 })
+
+router.route("/inprogress/add").post((req,res)=>{
+
+    const name = req.body.cname;
+    const nic = req.body.cnic;
+    const vnumber = req.body.vnumber;
+    const cemail = req.body.cemail;
+    const stype = req.body.stype;
+    const ename = req.body.ename;
+    
+    const newservice = new Inprogress({
+        name,
+        nic,
+        vnumber,
+        cemail,
+        stype,
+        ename,
+    })
+        newservice.save().then(()=>{
+        res.json("inprogress service Added!!");
+    }).catch((err)=>{
+        console.log(err);
+    })
+    
+})
+
+
+
+
 
 
 //Database data view nic data

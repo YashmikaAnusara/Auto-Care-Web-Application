@@ -9,27 +9,23 @@ const inprogress = new Schema({
     },
     nic :{
         type: String,
-        // required : true,
+        required : true,
     },
     vnumber :{
         type : String,
-        // required : true,
+        required : true,
     },
     cemail :{
         type : String,
-        // required : true,
+        required : true,
     },
     stype :{
         type : String,
-        // required : true,
+        required : true,
     },
-    cnumber :{
-        type : Number,
-        // required : true,
-    },
-    addinfo :{
-        type: String,
-        // required : true,
+    ename :{
+        type : String,
+        required : true,
     },
 })
 
