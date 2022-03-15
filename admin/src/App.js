@@ -28,6 +28,10 @@ function App() {
           <Workprogress/>
           </Route>
 
+          <Route exact path="/workprogress/pendingservices">
+          <Addservice/>
+          </Route>
+
        </Switch>
      </div>
     </Router>
