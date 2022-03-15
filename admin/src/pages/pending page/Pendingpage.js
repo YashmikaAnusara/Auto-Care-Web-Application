@@ -22,7 +22,7 @@ export default function Pendingpage({search,setSearch}){
           axios
             .get("http://localhost:8070/service/pending")
             .then((res) => {
-              console.log(res);
+            //   console.log(res);
               setservicedetails(res.data);
             })
             .catch((err) => {
@@ -33,6 +33,21 @@ export default function Pendingpage({search,setSearch}){
         getdetails();
       },[]);
     
+      const fromhandler =(event)=>{
+        const data ={servicedetails}
+    
+          axios.post('http://localhost:8070/service/addstaff',data)
+          .then(res=>{
+            // setpop(true);
+            alert("Employee Added Successfully");
+            console.log(data);
+          })
+          .catch(err=>{
+            // setOpen(true);
+            alert("Database Error");
+          })
+        //  event.preventDefault();
+      }
       const renderClass = (servicedetails, index) => {
         return (
           <tr key={index}>
@@ -42,8 +57,11 @@ export default function Pendingpage({search,setSearch}){
             <td className="table-clo5">{servicedetails.stype}</td>
             <td className="table-clo6">{servicedetails.cnumber}</td>
             <td><Link to={`/workprogress/${servicedetails._id}`}>
-                <button  size="small" color="primary" >View All</button>
+                <button  size="small" color="primary" >Edit / Delete Service</button>
                 </Link>
+            </td>
+            <td>
+                <button onClick={fromhandler} size="small" color="primary" >Start Service</button>
             </td>
           </tr>
         );
