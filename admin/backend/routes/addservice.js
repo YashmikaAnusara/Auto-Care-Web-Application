@@ -1,6 +1,7 @@
 const router = require("express").Router();
 let Service = require("../models/addServicemodel");
 let details = require("../models/addv");
+let Inprogress = require("../models/inprogressService");
 
 
 //Database data insert
@@ -50,6 +51,18 @@ router.route("/pending").get((req,res)=>{
         console.log(err);
     })
 })
+
+router.route("/inprogress/:id").get((req,res)=>{
+    let id=req.params.id
+
+    Service.findById({_id:id}).then((curds)=>{
+        res.json(curds)
+    }).catch((err)=>{
+        console.log(err);
+    })
+
+})
+
 
 //Database data view nic data
 router.route("/addservice/:nic/:name").get((req,res)=>{

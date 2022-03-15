@@ -33,21 +33,6 @@ export default function Pendingpage({search,setSearch}){
         getdetails();
       },[]);
     
-      const fromhandler =(event)=>{
-        const data ={servicedetails}
-    
-          axios.post('http://localhost:8070/service/addstaff',data)
-          .then(res=>{
-            // setpop(true);
-            alert("Employee Added Successfully");
-            console.log(data);
-          })
-          .catch(err=>{
-            // setOpen(true);
-            alert("Database Error");
-          })
-        //  event.preventDefault();
-      }
       const renderClass = (servicedetails, index) => {
         return (
           <tr key={index}>
@@ -60,8 +45,9 @@ export default function Pendingpage({search,setSearch}){
                 <button  size="small" color="primary" >Edit / Delete Service</button>
                 </Link>
             </td>
-            <td>
-                <button onClick={fromhandler} size="small" color="primary" >Start Service</button>
+            <td><Link to={`/workprogress/startservice/${servicedetails._id}`}>
+                <button  size="small" color="primary" >Start Service</button>
+                </Link>
             </td>
           </tr>
         );
