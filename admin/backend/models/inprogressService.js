@@ -1,34 +1,38 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const staffallowanceschema = new Schema({
+const inprogress = new Schema({
 
-    fname :{
+    name :{
         type: String,
-        required : true,
-    },
-    sname :{
-        type: String,
-        required : true,
-    },
-    email :{
-        type : String,
         required : true,
     },
     nic :{
+        type: String,
+        required : true,
+    },
+    vnumber :{
         type : String,
         required : true,
     },
-    amount :{
+    cemail :{
+        type : String,
+        required : true,
+    },
+    stype :{
+        type : String,
+        required : true,
+    },
+    cnumber :{
         type : Number,
         required : true,
     },
-    date :{
-        type : String,
-        required : true,
-    }
+    addinfo :{
+        type: String,
+        // required : true,
+    },
 })
 
-const data = mongoose.model("staff_allowance",staffallowanceschema);
+const data = mongoose.model("inprogress_Service",inprogress);
 // console.log(staffschema);
 module.exports = data;
