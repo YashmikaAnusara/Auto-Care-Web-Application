@@ -1,6 +1,7 @@
 import Topbar from "./components/topbar/Topbar";
 import Sidebar from "./components/sidebar/Sidebar";
 import './App.css';
+import { useState } from "react";
 import Home from "./pages/home/Home";
 import Addservice from "./pages/addservices/Addservices";
 import Workprogress from "./pages/workprogess/Workprogress";
@@ -8,6 +9,7 @@ import Pendingpage from "./pages/pending page/Pendingpage";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
+  const [search, setSearch] = useState("");
   return (
     <Router>
       <Topbar />
@@ -30,7 +32,7 @@ function App() {
           </Route>
 
           <Route exact path="/workprogress/pendingservices">
-          <Pendingpage/>
+          <Pendingpage setSearch={setSearch} search={search}/>
           </Route>
 
        </Switch>

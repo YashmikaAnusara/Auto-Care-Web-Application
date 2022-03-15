@@ -41,6 +41,16 @@ router.route("/").get((req,res)=>{
     })
 })
 
+//Database data view all
+router.route("/pending").get((req,res)=>{
+
+    Service.find().then((curds)=>{
+        res.json(curds)
+    }).catch((err)=>{
+        console.log(err);
+    })
+})
+
 //Database data view nic data
 router.route("/addservice/:nic/:name").get((req,res)=>{
     let ni=req.params.nic
