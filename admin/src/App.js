@@ -4,6 +4,7 @@ import './App.css';
 import Home from "./pages/home/Home";
 import Addservice from "./pages/addservices/Addservices";
 import Workprogress from "./pages/workprogess/Workprogress";
+import Pendingpage from "./pages/pending page/Pendingpage";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
@@ -29,7 +30,7 @@ function App() {
           </Route>
 
           <Route exact path="/workprogress/pendingservices">
-          <Addservice/>
+          <Pendingpage/>
           </Route>
 
        </Switch>

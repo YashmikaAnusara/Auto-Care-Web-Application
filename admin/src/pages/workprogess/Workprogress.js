@@ -35,6 +35,7 @@ const useStyles = makeStyles({
   
     return (
         <div className='home' >
+        <h1 className="heading">View Work Progress</h1>
         <div className='cards'>
       <Card className={classes.root1}>
         <div className='card'>
