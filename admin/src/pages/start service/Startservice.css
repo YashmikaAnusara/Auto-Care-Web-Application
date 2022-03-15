@@ -8,3 +8,7 @@
 .feild{
     display: flex;
 }
+.addbtn{
+    margin-left: 678px;
+    width: fit-content;
+}

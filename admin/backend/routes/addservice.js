@@ -44,7 +44,7 @@ router.route("/").get((req,res)=>{
 
 router.route("/pending").get((req,res)=>{
 
-    Service.find().then((curds)=>{
+    Pending.find().then((curds)=>{
         res.json(curds)
     }).catch((err)=>{
         console.log(err);
@@ -54,7 +54,7 @@ router.route("/pending").get((req,res)=>{
 router.route("/pending/delete/:id").delete((req,res)=>{
     let id=req.params.id
 
-    Service.findByIdAndDelete({_id:id}).then((curds)=>{
+    Pending.findByIdAndDelete({_id:id}).then((curds)=>{
         res.json(curds)
     }).catch((err)=>{
         console.log(err);
@@ -65,7 +65,7 @@ router.route("/pending/delete/:id").delete((req,res)=>{
 router.route("/inprogress/:id").get((req,res)=>{
     let id=req.params.id
 
-    Service.findById({_id:id}).then((curds)=>{
+    Pending.findById({_id:id}).then((curds)=>{
         res.json(curds)
     }).catch((err)=>{
         console.log(err);

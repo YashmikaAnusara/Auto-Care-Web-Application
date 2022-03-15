@@ -136,7 +136,9 @@ export default function Startservice(){
                 />
                 <TextField id="Service Type" name="stype" value={stype} label="Service Type" InputProps={{readOnly: true,}} variant="outlined"/>
                 </div>
-                <LoadingButton onClick={submithandler} className="addbtn" color="primary" endIcon={<SendIcon />} variant="contained">Submit</LoadingButton>
+                <div className="addbtn">
+                    <LoadingButton onClick={submithandler} color="primary" endIcon={<SendIcon />} variant="contained">Start Service</LoadingButton>
+                </div>
             </form>
         </div>
     )
