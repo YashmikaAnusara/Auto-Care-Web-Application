@@ -20,7 +20,7 @@ export default function Finishpage({search,setSearch}){
       useEffect(() => {
         function getdetails() {
           axios
-            .get("http://localhost:8070/service/pending")
+            .get("http://localhost:8070/service/finish")
             .then((res) => {
             //   console.log(res);
               setservicedetails(res.data);
@@ -41,10 +41,6 @@ export default function Finishpage({search,setSearch}){
             <td className="table-clo4">{servicedetails.cemail}</td>
             <td className="table-clo5">{servicedetails.stype}</td>
             <td className="table-clo6">{servicedetails.cnumber}</td>
-            <td><Link to={`/workprogress/${servicedetails._id}`}>
-                <button  size="small" color="primary" >Edit / Delete Service</button>
-                </Link>
-            </td>
             <td>
               <Buttondone cid={servicedetails._id}/>
             </td>

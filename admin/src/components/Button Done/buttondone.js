@@ -38,7 +38,7 @@ export default function Buttondone(props){
     function testid(){
         const data ={cname,cnic,cemail,vnumber,stype,cnumber}
 
-        axios.get(`http://localhost:8070/service/finish/${id}`)
+        axios.get(`http://localhost:8070/service/done/${id}`)
         .then(res=>{
             setcname(res.data.name)
             setcnic(res.data.nic)
@@ -49,10 +49,10 @@ export default function Buttondone(props){
             console.log("Data Get it")
             
         })
-            axios.post(`http://localhost:8070/service/finish/add`,data)
+            axios.post(`http://localhost:8070/service/done/add`,data)
             .then(res=>{
             alert("Employee added Successfully");
-            axios.delete(`http://localhost:8070/service/finish/delete/${id}`)
+            axios.delete(`http://localhost:8070/service/done/delete/${id}`)
             .then(res=>{
                 alert("data gone")
             })
@@ -64,7 +64,7 @@ export default function Buttondone(props){
     }
     return(
         <div>
-            <input type="button" value="Finish Service" onClick={testid}/>
+            <input type="button" value="Done" onClick={testid}/>
             <input type="hidden" value={cname}/>
             <input type="hidden" value={cnic}/>
             <input type="hidden" value={cemail}/>
