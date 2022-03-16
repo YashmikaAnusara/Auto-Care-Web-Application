@@ -23,6 +23,10 @@ const inprogress = new Schema({
         type : String,
         required : true,
     },
+    cnumber :{
+        type : Number,
+        required : true,
+    },
     ename :{
         type : String,
         required : true,

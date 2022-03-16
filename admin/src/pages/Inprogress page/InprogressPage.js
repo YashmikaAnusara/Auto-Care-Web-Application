@@ -3,9 +3,9 @@ import { useEffect,useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import Buttonid from '../../components/Button/button';
-import "./Pendingpage.css"
+import "./InprogressPage.css"
 
-export default function Pendingpage({search,setSearch}){
+export default function Inprogress({search,setSearch}){
 
     const [servicedetails, setservicedetails] = useState([
         {
@@ -42,10 +42,6 @@ export default function Pendingpage({search,setSearch}){
             <td className="table-clo4">{servicedetails.cemail}</td>
             <td className="table-clo5">{servicedetails.stype}</td>
             <td className="table-clo6">{servicedetails.cnumber}</td>
-            <td><Link to={`/workprogress/${servicedetails._id}`}>
-                <button  size="small" color="primary" >Edit / Delete Service</button>
-                </Link>
-            </td>
             <td>
               <Buttonid cid={servicedetails._id}/>
             </td>

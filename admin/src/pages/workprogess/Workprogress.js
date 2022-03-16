@@ -83,9 +83,11 @@ const useStyles = makeStyles({
           </CardContent>
         </CardActionArea>
         <CardActions className='btn'>
-          <Button  size="small" color="primary" className='btn2' >
+        <Link to={`/workprogress/inprogressservices`}>
+          <Button  size="small" color="primary" >
             View All
           </Button>
+          </Link>
         </CardActions>
         </div>
       </Card>

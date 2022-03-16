@@ -36,6 +36,7 @@ export default function Startservice(){
     const [cemail,setcemail] =useState('');
     const [vnumber,setvnumber] =useState('');
     const [stype,setstype] =useState('');
+    const [cnumber,setcnumber] =useState('');
     const [ename,setename] =useState('');
     
     const classes = useStyles();
@@ -86,6 +87,7 @@ export default function Startservice(){
             setcemail(result.cemail)
             setvnumber(result.vnumber)
             setstype(result.stype)
+            setcnumber(result.cnumber)
           }
         })
          return () => mounted = false;
@@ -94,7 +96,7 @@ export default function Startservice(){
       const submithandler =(event)=>{
         event.preventDefault();
       
-        const data ={cname,cnic,cemail,vnumber,stype,ename}
+        const data ={cname,cnic,cemail,vnumber,stype,cnumber,ename}
         axios.post(`http://localhost:8070/service/inprogress/add`,data)
       .then(res=>{
         alert("Employee added Successfully");
@@ -143,6 +145,7 @@ export default function Startservice(){
                 </div>
                 <div className="addbtn">
                     <LoadingButton onClick={submithandler} color="primary" endIcon={<SendIcon />} variant="contained">Start Service</LoadingButton>
+                <input type="hidden" value={cnumber}/>
                 </div>
             </form>
         </div>

@@ -80,6 +80,7 @@ router.route("/inprogress/add").post((req,res)=>{
     const vnumber = req.body.vnumber;
     const cemail = req.body.cemail;
     const stype = req.body.stype;
+    const cnumber =Number(req.body.cnumber);
     const ename = req.body.ename;
     
     const newservice = new Inprogress({
@@ -88,6 +89,7 @@ router.route("/inprogress/add").post((req,res)=>{
         vnumber,
         cemail,
         stype,
+        cnumber,
         ename,
     })
         newservice.save().then(()=>{

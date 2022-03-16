@@ -6,6 +6,7 @@ import Home from "./pages/home/Home";
 import Addservice from "./pages/addservices/Addservices";
 import Workprogress from "./pages/workprogess/Workprogress";
 import Pendingpage from "./pages/pending page/Pendingpage";
+import Inprogress from "./pages/Inprogress page/InprogressPage";
 import Startservice from "./pages/start service/Startservice";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
@@ -40,6 +41,10 @@ function App() {
           <Startservice/>
           </Route>
           
+          <Route exact path="/workprogress/inprogressservices">
+          <Inprogress setSearch={setSearch} search={search}/>
+          </Route>
+
        </Switch>
      </div>
     </Router>
