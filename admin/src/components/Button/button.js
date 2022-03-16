@@ -9,7 +9,7 @@ export default function Buttonid(props){
     }
     return(
         <div>
-            <input type="button" value="test" onClick={testid}/>
+            <input type="button" value="Finish Service" onClick={testid}/>
             
         </div>
     )

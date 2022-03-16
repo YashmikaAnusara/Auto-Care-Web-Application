@@ -1,7 +1,6 @@
 import React from 'react';
 import { useEffect,useState } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
 import Buttonid from '../../components/Button/button';
 import "./InprogressPage.css"
 
@@ -55,7 +54,7 @@ export default function Inprogress({search,setSearch}){
 
     return(
         <div className="home">
-            <h1 className="heading">Pending Services</h1>
+            <h1 className="heading">Inprogress Services</h1>
             <input placeholder="Enter Customer Vehicle Number " className="searchbox" type="search" onChange={(e) => setSearch(e.target.value)}/>
             {/* <div ref={componentRef}> */}
             <table className="table-report">

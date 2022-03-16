@@ -7,6 +7,7 @@ import SendIcon from '@material-ui/icons/Send';
 import LoadingButton from '@material-ui/core/Button';
 import {useParams } from 'react-router';
 import "./Startservice.css"
+import { useHistory } from "react-router-dom";
 import axios from'axios';
 
 const useStyles = makeStyles((theme) => ({
@@ -26,6 +27,7 @@ const useStyles = makeStyles((theme) => ({
 export default function Startservice(){
 
     const {id}=useParams();
+    let history = useHistory();
 
     const [open, setOpen] = React.useState(false);
     const [options, setOptions] = React.useState([]);
@@ -102,13 +104,13 @@ export default function Startservice(){
         alert("Employee added Successfully");
         axios.delete(`http://localhost:8070/service/pending/delete/${id}`)
         .then(res=>{
-          alert("tata");
+          history.push(`/workprogress/pendingservices`);
         })
       })
       .catch(err=>{
         alert("Database Error");
       })
-
+      
       // axios.delete(`http://localhost:8070/service/pending/delete/${id}`)
       // .then(res=>{
       //   alert("Pending Service Delete Successfully");

@@ -1,6 +1,7 @@
 const router = require("express").Router();
 let Pending = require("../models/addServicemodel");
 let Inprogress = require("../models/inprogressService");
+let Finish = require("../models/finishService");
 
 let details = require("../models/addv");
 
@@ -107,6 +108,34 @@ router.route("/inprogress").get((req,res)=>{
     }).catch((err)=>{
         console.log(err);
     })
+})
+
+//Finish Service Part Apis
+router.route("/finish/add").post((req,res)=>{
+
+    const name = req.body.cname;
+    const nic = req.body.cnic;
+    const vnumber = req.body.vnumber;
+    const cemail = req.body.cemail;
+    const stype = req.body.stype;
+    const cnumber =Number(req.body.cnumber);
+    const ename = req.body.ename;
+    
+    const newservice = new Finish({
+        name,
+        nic,
+        vnumber,
+        cemail,
+        stype,
+        cnumber,
+        ename,
+    })
+        newservice.save().then(()=>{
+        res.json("finish service Added!!");
+    }).catch((err)=>{
+        console.log(err);
+    })
+    
 })
 
 
