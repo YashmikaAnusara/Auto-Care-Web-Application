@@ -2,6 +2,7 @@ const router = require("express").Router();
 let Pending = require("../models/addServicemodel");
 let Inprogress = require("../models/inprogressService");
 let Finish = require("../models/finishService");
+let Done = require("../models/done");
 
 let details = require("../models/addv");
 
@@ -136,6 +137,27 @@ router.route("/finish/add").post((req,res)=>{
         console.log(err);
     })
     
+})
+
+router.route("/finish/:id").get((req,res)=>{
+    let id=req.params.id
+
+    Inprogress.findById({_id:id}).then((curds)=>{
+        res.json(curds)
+    }).catch((err)=>{
+        console.log(err);
+    })
+
+})
+
+router.route("/finish/delete/:id").delete((req,res)=>{
+    let id=req.params.id
+
+    Inprogress.findByIdAndDelete({_id:id}).then((curds)=>{
+        res.json(curds)
+    }).catch((err)=>{
+        console.log(err);
+    })
 })
 
 

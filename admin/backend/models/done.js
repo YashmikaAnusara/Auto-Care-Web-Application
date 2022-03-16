@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const finish = new Schema({
+const done = new Schema({
 
     name :{
         type: String,
@@ -29,6 +29,6 @@ const finish = new Schema({
     },
 })
 
-const data = mongoose.model("finish_Service",finish);
+const data = mongoose.model("done_Service",done);
 // console.log(staffschema);
 module.exports = data;

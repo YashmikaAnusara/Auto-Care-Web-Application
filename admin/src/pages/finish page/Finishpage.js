@@ -1,10 +1,10 @@
-import React from 'react';
-import { useEffect,useState } from 'react';
+import React, {useState,useEffect} from "react";
 import axios from 'axios';
-import Buttoninprogress from '../../components/Button in porgress/buttoninprogress';
-import "./InprogressPage.css"
+import { Link } from 'react-router-dom';
+import Buttondone from '../../components/Button Done/buttondone';
+import "./Finishpage.css"
 
-export default function Inprogress({search,setSearch}){
+export default function Finishpage({search,setSearch}){
 
     const [servicedetails, setservicedetails] = useState([
         {
@@ -20,7 +20,7 @@ export default function Inprogress({search,setSearch}){
       useEffect(() => {
         function getdetails() {
           axios
-            .get("http://localhost:8070/service/inprogress")
+            .get("http://localhost:8070/service/pending")
             .then((res) => {
             //   console.log(res);
               setservicedetails(res.data);
@@ -41,8 +41,12 @@ export default function Inprogress({search,setSearch}){
             <td className="table-clo4">{servicedetails.cemail}</td>
             <td className="table-clo5">{servicedetails.stype}</td>
             <td className="table-clo6">{servicedetails.cnumber}</td>
+            <td><Link to={`/workprogress/${servicedetails._id}`}>
+                <button  size="small" color="primary" >Edit / Delete Service</button>
+                </Link>
+            </td>
             <td>
-              <Buttoninprogress cid={servicedetails._id}/>
+              <Buttondone cid={servicedetails._id}/>
             </td>
             {/* <td><Link to={`/workprogress/startservice/${servicedetails._id}`}>
                 <button  size="small" color="primary" >Start Service</button>
@@ -54,7 +58,7 @@ export default function Inprogress({search,setSearch}){
 
     return(
         <div className="home">
-            <h1 className="heading">Inprogress Services</h1>
+            <h1 className="heading">Finish Services</h1>
             <input placeholder="Enter Customer Vehicle Number " className="searchbox" type="search" onChange={(e) => setSearch(e.target.value)}/>
             {/* <div ref={componentRef}> */}
             <table className="table-report">
