@@ -98,18 +98,23 @@ export default function Startservice(){
         axios.post(`http://localhost:8070/service/inprogress/add`,data)
       .then(res=>{
         alert("Employee added Successfully");
+        axios.delete(`http://localhost:8070/service/pending/delete/${id}`)
+        .then(res=>{
+          alert("tata");
+        })
       })
       .catch(err=>{
         alert("Database Error");
       })
 
-      axios.delete(`http://localhost:8070/service/pending/delete/${id}`)
-      .then(res=>{
-        alert("Pending Service Delete Successfully");
-      })
-      .catch(err=>{
-        alert("Database Error");
-      })
+      // axios.delete(`http://localhost:8070/service/pending/delete/${id}`)
+      // .then(res=>{
+      //   alert("Pending Service Delete Successfully");
+      // })
+      // .catch(err=>{
+      //   alert("Database Error");
+      // })
+
       }
     return(
         <div className="home">
