@@ -98,7 +98,14 @@ router.route("/inprogress/add").post((req,res)=>{
     
 })
 
+router.route("/inprogress").get((req,res)=>{
 
+    Inprogress.find().then((curds)=>{
+        res.json(curds)
+    }).catch((err)=>{
+        console.log(err);
+    })
+})
 
 
 

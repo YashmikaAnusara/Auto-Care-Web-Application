@@ -33,10 +33,7 @@ export default function Pendingpage({search,setSearch}){
     
         getdetails();
       },[]);
-    
-      const idhandle=(id)=>{
-        console.log(id);
-      }
+
       const renderClass = (servicedetails, index) => {
         return (
           <tr key={index}>
@@ -49,13 +46,13 @@ export default function Pendingpage({search,setSearch}){
                 <button  size="small" color="primary" >Edit / Delete Service</button>
                 </Link>
             </td>
-            <td>
+            {/* <td>
               <Buttonid cid={servicedetails._id}/>
-            </td>
-            {/* <td><Link to={`/workprogress/startservice/${servicedetails._id}`}>
+            </td> */}
+            <td><Link to={`/workprogress/startservice/${servicedetails._id}`}>
                 <button  size="small" color="primary" >Start Service</button>
                 </Link>
-            </td> */}
+            </td>
           </tr>
         );
       };
