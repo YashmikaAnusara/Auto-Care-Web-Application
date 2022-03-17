@@ -3,6 +3,7 @@ import { useEffect,useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import "./Pendingpage.css"
+import Button from '@material-ui/core/Button';
 
 export default function Pendingpage({search,setSearch}){
 
@@ -42,14 +43,14 @@ export default function Pendingpage({search,setSearch}){
             <td className="table-clo5">{servicedetails.stype}</td>
             <td className="table-clo6">{servicedetails.cnumber}</td>
             <td><Link to={`/workprogress/${servicedetails._id}`}>
-                <button  size="small" color="primary" >Edit / Delete Service</button>
+                <Button size="small" color="primary" variant="contained" >Edit / Delete Service</Button>
                 </Link>
             </td>
             {/* <td>
               <Buttonid cid={servicedetails._id}/>
             </td> */}
             <td><Link to={`/workprogress/startservice/${servicedetails._id}`}>
-                <button  size="small" color="primary" >Start Service</button>
+                <Button  size="small" color="secondary" variant="contained">Start Service</Button>
                 </Link>
             </td>
           </tr>

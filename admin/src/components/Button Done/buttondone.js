@@ -1,6 +1,7 @@
 import React,{useState} from "react";
 import axios from 'axios';
 import { useHistory } from "react-router-dom";
+import Button from '@material-ui/core/Button';
 
 export default function Buttondone(props){
 
@@ -67,7 +68,7 @@ export default function Buttondone(props){
     }
     return(
         <div>
-            <input type="button" value="Done" onClick={testid}/>
+            <Button onClick={testid} variant="contained" color="primary">Done</Button>
             <input type="hidden" value={cname}/>
             <input type="hidden" value={cnic}/>
             <input type="hidden" value={cemail}/>
