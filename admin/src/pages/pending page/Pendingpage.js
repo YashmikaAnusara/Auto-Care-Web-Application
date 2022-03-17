@@ -55,6 +55,7 @@ export default function Pendingpage({search,setSearch}){
             </td>
           </tr>
         );
+        
       };
 
     return(
