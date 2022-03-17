@@ -4,6 +4,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import "./Pendingpage.css"
 import Button from '@material-ui/core/Button';
+import { green, purple } from '@material-ui/core/colors';
 
 export default function Pendingpage({search,setSearch}){
 
@@ -42,20 +43,20 @@ export default function Pendingpage({search,setSearch}){
             <td className="table-clo4">{servicedetails.cemail}</td>
             <td className="table-clo5">{servicedetails.stype}</td>
             <td className="table-clo6">{servicedetails.cnumber}</td>
-            <td><Link to={`/workprogress/${servicedetails._id}`}>
-                <Button size="small" color="primary" variant="contained" >Edit / Delete Service</Button>
+            <td className="table-clo7"><Link className='link' to={`/workprogress/${servicedetails._id}`}>
+                <Button size="small" color="primary" variant="outlined" >Edit / Delete</Button>
                 </Link>
             </td>
             {/* <td>
               <Buttonid cid={servicedetails._id}/>
             </td> */}
-            <td><Link to={`/workprogress/startservice/${servicedetails._id}`}>
-                <Button  size="small" color="secondary" variant="contained">Start Service</Button>
+            <td className="table-clo8"><Link className='link' to={`/workprogress/startservice/${servicedetails._id}`}>
+                <Button  size="small" color="primary" variant="contained">Start Service</Button>
                 </Link>
             </td>
           </tr>
         );
-        
+
       };
 
     return(

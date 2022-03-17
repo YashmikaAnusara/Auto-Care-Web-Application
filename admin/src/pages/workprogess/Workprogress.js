@@ -56,8 +56,8 @@ const useStyles = makeStyles({
           </CardContent>
         </CardActionArea>
         <CardActions className='btn'>
-        <Link to={`/workprogress/pendingservices`}>
-          <Button  size="small" color="primary" >
+        <Link className='link' to={`/workprogress/pendingservices`}>
+          <Button color="primary" >
             View All
           </Button>
           </Link>
@@ -83,8 +83,8 @@ const useStyles = makeStyles({
           </CardContent>
         </CardActionArea>
         <CardActions className='btn'>
-        <Link to={`/workprogress/inprogressservices`}>
-          <Button  size="small" color="primary" >
+        <Link className='link' to={`/workprogress/inprogressservices`}>
+          <Button color="primary" >
             View All
           </Button>
           </Link>
@@ -110,8 +110,8 @@ const useStyles = makeStyles({
           </CardContent>
         </CardActionArea>
         <CardActions className='btn'>
-        <Link to={`/workprogress/finishservices`}>
-          <Button  size="small" color="primary" >
+        <Link className='link' to={`/workprogress/finishservices`}>
+          <Button color="primary" >
             View All
           </Button>
           </Link>

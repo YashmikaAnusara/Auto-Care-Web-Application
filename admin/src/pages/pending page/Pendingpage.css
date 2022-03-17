@@ -28,6 +28,12 @@
 .table-clo6{
     text-align: center;
 }
+.table-clo7{
+    width: 120px;
+}
+.table-clo8{
+    width: 127px;
+}
 .searchbox{
     padding: 10px;
     margin-left: 872px;
@@ -35,4 +41,7 @@
     border: 2px solid#3b3db4;
     border-radius: 20px;
     width: 300px;
+  }
+.link{
+    text-decoration: none;
   }
