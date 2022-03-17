@@ -167,16 +167,6 @@ const submithandler =(event)=>{
   }else if(data.cnumber===''){
     setwcnumber(true);
   }else{
-    emailjs.sendForm('service_vjxyu2u', 'template_zbea81o', form.current, 'SyT4b6zqPbizysgyf')
-        .then((result) => {
-          console.log(result.text);
-          // alert("Email sent");
-          setemail(true);
-        }, (error) => {
-          console.log(error.text);
-          alert("Email not sent");
-      });
-
       axios.post(`http://localhost:8070/service/addservice`,data)
       .then(res=>{
         // alert("Employee Updated Successfully");

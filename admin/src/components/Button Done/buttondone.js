@@ -1,9 +1,11 @@
 import React,{useState} from "react";
 import axios from 'axios';
+import { useHistory } from "react-router-dom";
 
 export default function Buttondone(props){
 
     let id=props.cid;
+    let history = useHistory();
 
     const [cname,setcname] =useState('');
     const [cnic,setcnic] =useState('');
@@ -51,10 +53,11 @@ export default function Buttondone(props){
         })
             axios.post(`http://localhost:8070/service/done/add`,data)
             .then(res=>{
-            alert("Employee added Successfully");
+            // alert("Employee added Successfully");
             axios.delete(`http://localhost:8070/service/done/delete/${id}`)
             .then(res=>{
-                alert("data gone")
+                alert("Customer Took the Vehicle")
+                history.push(`/workprogress`);
             })
         })
         

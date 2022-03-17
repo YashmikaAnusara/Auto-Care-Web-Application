@@ -9,6 +9,9 @@ import {useParams } from 'react-router';
 import "./Startservice.css"
 import { useHistory } from "react-router-dom";
 import axios from'axios';
+import Snackbar from '@material-ui/core/Snackbar';
+import Alert from '@material-ui/lab/Alert';
+import Slide from '@material-ui/core/Slide';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -28,6 +31,7 @@ export default function Startservice(){
 
     const {id}=useParams();
     let history = useHistory();
+    
 
     const [open, setOpen] = React.useState(false);
     const [options, setOptions] = React.useState([]);
@@ -40,6 +44,8 @@ export default function Startservice(){
     const [stype,setstype] =useState('');
     const [cnumber,setcnumber] =useState('');
     const [ename,setename] =useState('');
+
+    const [wename, setwename] = React.useState(false)
     
     const classes = useStyles();
 
@@ -99,9 +105,13 @@ export default function Startservice(){
         event.preventDefault();
       
         const data ={cname,cnic,cemail,vnumber,stype,cnumber,ename}
+        if(data.ename===''){
+          setwename(true);
+        }
+        else{
         axios.post(`http://localhost:8070/service/inprogress/add`,data)
-      .then(res=>{
-        alert("Employee added Successfully");
+        .then(res=>{
+          alert("Service and Email sent Successfully");
         axios.delete(`http://localhost:8070/service/pending/delete/${id}`)
         .then(res=>{
           history.push(`/workprogress/pendingservices`);
@@ -118,8 +128,19 @@ export default function Startservice(){
       // .catch(err=>{
       //   alert("Database Error");
       // })
-
       }
+    }
+      function TransitionRight(props) {
+        return <Slide {...props} direction="left" />;
+      }
+
+      const handleClose = (event, reason) => {
+        if (reason === 'clickaway') {
+          return;
+        }
+        setwename(false);
+      };
+      
     return(
         <div className="home">
             <h1 className="heading">Assign Employee</h1>
@@ -127,7 +148,7 @@ export default function Startservice(){
             <TextField id="Customer Name" name="cname" value={cname} label="Customer Name" InputProps={{readOnly: true,}} variant="outlined"/>
             <TextField id="Customer NIC" name="cnic" value={cnic} label="Customer NIC" InputProps={{readOnly: true,}} variant="outlined"/>
             <TextField id="Customer Email" name="cemail" value={cemail} label="Customer Email" InputProps={{readOnly: true,}} variant="outlined"/>
-            <TextField id="Vehicle Number" name="cnumber" value={vnumber} label="Vehicle Number" InputProps={{readOnly: true,}} variant="outlined"/>
+            <TextField id="Vehicle Number" name="vnumber" value={vnumber} label="Vehicle Number" InputProps={{readOnly: true,}} variant="outlined"/>
             <div className="feild">
             <Autocomplete open={open} onOpen={() => {setOpen(true); }} onClose={() => {setOpen(false);}} getOptionLabel={(option) => option.name} onChange={(e,value) => {setename(value.name);} } 
                 options={options} loading={loading}
@@ -150,6 +171,10 @@ export default function Startservice(){
                 <input type="hidden" value={cnumber}/>
                 </div>
             </form>
+
+            <Snackbar open={wename} anchorOrigin={{ vertical:'top', horizontal:'right' }} TransitionComponent={TransitionRight} autoHideDuration={3000} onClose={handleClose}>
+              <Alert onClose={handleClose} severity="warning" sx={{ width: '100%' }}>Please Assign Employee</Alert>
+            </Snackbar>
         </div>
     )
 }

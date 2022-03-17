@@ -1,9 +1,14 @@
-import React,{useState} from "react";
+import React,{useState,useRef} from "react";
 import axios from 'axios';
+import emailjs from '@emailjs/browser';
+import { useHistory } from "react-router-dom";
 
 export default function Buttoninprogress(props){
 
     let id=props.cid;
+    let history = useHistory();
+
+    const form = useRef();
 
     const [cname,setcname] =useState('');
     const [cnic,setcnic] =useState('');
@@ -51,10 +56,21 @@ export default function Buttoninprogress(props){
         })
             axios.post(`http://localhost:8070/service/finish/add`,data)
             .then(res=>{
-            alert("Employee added Successfully");
+            // alert("Employee added Successfully");
+
+            emailjs.sendForm('service_vjxyu2u', 'template_nnwibka', form.current, 'SyT4b6zqPbizysgyf')
+                .then((result) => {
+            console.log(result.text);
+            // alert("Email sent");
+            }, (error) => {
+            console.log(error.text);
+            alert("Email not sent");
+        });
+
             axios.delete(`http://localhost:8070/service/finish/delete/${id}`)
             .then(res=>{
-                alert("data gone")
+                alert("Service and Email Sent Successfully")
+                history.push(`/workprogress`);
             })
         })
         
@@ -65,13 +81,14 @@ export default function Buttoninprogress(props){
     return(
         <div>
             <input type="button" value="Finish Service" onClick={testid}/>
-            <input type="hidden" value={cname}/>
+            <form ref={form}>
+            <input type="hidden" value={cname} name="cname"/>
             <input type="hidden" value={cnic}/>
-            <input type="hidden" value={cemail}/>
-            <input type="hidden" value={vnumber}/>
+            <input type="hidden" value={cemail} name="cemail"/>
+            <input type="hidden" value={vnumber} name="vnumber"/>
             <input type="hidden" value={stype}/>
             <input type="hidden" value={cnumber}/>
-            
+            </form>
         </div>
     )
 }
