@@ -2,12 +2,15 @@ import React,{useState,useRef} from "react";
 import axios from 'axios';
 import emailjs from '@emailjs/browser';
 import { useHistory } from "react-router-dom";
+import Button from '@material-ui/core/Button';
+
 
 export default function Buttoninprogress(props){
 
     let id=props.cid;
     let history = useHistory();
 
+    
     const form = useRef();
 
     const [cname,setcname] =useState('');
@@ -80,7 +83,7 @@ export default function Buttoninprogress(props){
     }
     return(
         <div>
-            <input type="button" value="Finish Service" onClick={testid}/>
+            <Button onClick={testid} variant="contained" color="primary">Finish Service</Button>
             <form ref={form}>
             <input type="hidden" value={cname} name="cname"/>
             <input type="hidden" value={cnic}/>
