@@ -49,8 +49,7 @@ const useStyles = makeStyles({
             </div>
             <div className='par'>
             <Typography variant="body2" color="textSecondary" component="p">
-              Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
-              across all continents except Antarctica
+              This Part Will Show The All Pending Services In This System.
             </Typography>
             </div>
           </CardContent>
@@ -76,8 +75,7 @@ const useStyles = makeStyles({
             </div>
             <div className='par'>
             <Typography variant="body2" color="textSecondary" component="p">
-              Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
-              across all continents except Antarctica
+                This Part Will Show The All In Progress Services In This System.
             </Typography>
             </div>
           </CardContent>
@@ -103,8 +101,7 @@ const useStyles = makeStyles({
             </div>
             <div className='par'>
             <Typography variant="body2" color="textSecondary" component="p">
-              Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
-              across all continents except Antarctica
+                This Part Will Show The All Finish Services In This System.
             </Typography>
             </div>
           </CardContent>
