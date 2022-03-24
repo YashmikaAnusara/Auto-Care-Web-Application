@@ -117,7 +117,7 @@ export default function Startservice(){
             // alert("Email sent");
             }, (error) => {
             console.log(error.text);
-            alert("Email not sent");
+            alert("Email not sent"); 
         });
 
         axios.post(`http://localhost:8070/service/inprogress/add`,data)
