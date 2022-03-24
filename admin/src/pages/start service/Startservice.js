@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from "react";
+import React,{useState,useEffect,useRef} from "react";
 import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
 import Autocomplete from '@material-ui/lab/Autocomplete';
@@ -12,6 +12,7 @@ import axios from'axios';
 import Snackbar from '@material-ui/core/Snackbar';
 import Alert from '@material-ui/lab/Alert';
 import Slide from '@material-ui/core/Slide';
+import emailjs from '@emailjs/browser';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -31,6 +32,7 @@ export default function Startservice(){
 
     const {id}=useParams();
     let history = useHistory();
+    const form = useRef();
     
 
     const [open, setOpen] = React.useState(false);
@@ -109,9 +111,18 @@ export default function Startservice(){
           setwename(true);
         }
         else{
+          emailjs.sendForm('service_vjxyu2u', 'template_nnwibka', form.current, 'SyT4b6zqPbizysgyf')
+                .then((result) => {
+            console.log(result.text);
+            // alert("Email sent");
+            }, (error) => {
+            console.log(error.text);
+            alert("Email not sent");
+        });
+
         axios.post(`http://localhost:8070/service/inprogress/add`,data)
         .then(res=>{
-          alert("Service and Email sent Successfully");
+          alert("Start The Service and Email sent Successfully");
         axios.delete(`http://localhost:8070/service/pending/delete/${id}`)
         .then(res=>{
           history.push(`/workprogress/pendingservices`);
@@ -144,7 +155,7 @@ export default function Startservice(){
     return(
         <div className="home">
             <h1 className="heading">Assign Employee</h1>
-            <form className={classes.root} autoComplete="off">
+            <form ref={form} className={classes.root} autoComplete="off">
             <TextField id="Customer Name" name="cname" value={cname} label="Customer Name" InputProps={{readOnly: true,}} variant="outlined"/>
             <TextField id="Customer NIC" name="cnic" value={cnic} label="Customer NIC" InputProps={{readOnly: true,}} variant="outlined"/>
             <TextField id="Customer Email" name="cemail" value={cemail} label="Customer Email" InputProps={{readOnly: true,}} variant="outlined"/>

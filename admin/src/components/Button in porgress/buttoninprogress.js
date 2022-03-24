@@ -61,7 +61,7 @@ export default function Buttoninprogress(props){
             .then(res=>{
             // alert("Employee added Successfully");
 
-            emailjs.sendForm('service_vjxyu2u', 'template_nnwibka', form.current, 'SyT4b6zqPbizysgyf')
+            emailjs.sendForm('service_vjxyu2u', 'template_zbea81o', form.current, 'SyT4b6zqPbizysgyf')
                 .then((result) => {
             console.log(result.text);
             // alert("Email sent");
@@ -72,7 +72,7 @@ export default function Buttoninprogress(props){
 
             axios.delete(`http://localhost:8070/service/finish/delete/${id}`)
             .then(res=>{
-                alert("Service and Email Sent Successfully")
+                alert("Finish The Service and Email Sent Successfully")
                 history.push(`/workprogress`);
             })
         })
