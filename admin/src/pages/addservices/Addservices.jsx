@@ -10,7 +10,6 @@ import Snackbar from '@material-ui/core/Snackbar';
 import MuiAlert from '@material-ui/lab/Alert';
 import Slide from '@material-ui/core/Slide';
 import SendIcon from '@material-ui/icons/Send';
-import emailjs from '@emailjs/browser';
 import axios from'axios';
 
 const useStyles = makeStyles((theme) => ({

@@ -4,7 +4,6 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import "./Pendingpage.css"
 import Button from '@material-ui/core/Button';
-import { green, purple } from '@material-ui/core/colors';
 
 export default function Pendingpage({search,setSearch}){
 
