@@ -122,7 +122,7 @@ export default function Startservice(){
 
         axios.post(`http://localhost:8070/service/inprogress/add`,data)
         .then(res=>{
-          alert("Start The Service and Email sent Successfully");
+          alert("Service Will Be Started");
         axios.delete(`http://localhost:8070/service/pending/delete/${id}`)
         .then(res=>{
           history.push(`/workprogress/pendingservices`);
