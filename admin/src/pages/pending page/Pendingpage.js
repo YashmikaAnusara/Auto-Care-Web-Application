@@ -42,7 +42,8 @@ export default function Pendingpage({search,setSearch}){
             <td className="table-clo4">{servicedetails.cemail}</td>
             <td className="table-clo5">{servicedetails.stype}</td>
             <td className="table-clo6">{servicedetails.cnumber}</td>
-            <td className="table-clo7"><Link className='link' to={`/workprogress/${servicedetails._id}`}>
+            <td className="table-clo7">
+              <Link className='link' to={`/workprogress/editordeleteservice/${servicedetails._id}`}>
                 <Button size="small" color="primary" variant="outlined" >Edit / Delete</Button>
                 </Link>
             </td>

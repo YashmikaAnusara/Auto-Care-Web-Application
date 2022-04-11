@@ -9,6 +9,7 @@ import Pendingpage from "./pages/pending page/Pendingpage";
 import Inprogress from "./pages/Inprogress page/InprogressPage";
 import Startservice from "./pages/start service/Startservice";
 import Finishpage from "./pages/finish page/Finishpage";
+import Editordeletepage from "./pages/Edit or delete page/Edit or delete page";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
@@ -48,6 +49,10 @@ function App() {
 
           <Route exact path="/workprogress/finishservices">
           <Finishpage setSearch={setSearch} search={search}/>
+          </Route>
+
+          <Route exact path="/workprogress/editordeleteservice/:id">
+          <Editordeletepage/>
           </Route>
 
        </Switch>
