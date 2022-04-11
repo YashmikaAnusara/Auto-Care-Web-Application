@@ -14,7 +14,7 @@ export default function Editordeletepage(){
                 <img className="icon" src={require(`./edit.svg`).default}/>
                     <h1 className="h3size">Edit Service</h1>
                     <div className="content123">
-                    <Link className='link' to={`/workprogress/EditService/${id}`}>
+                    <Link className='link' to={`/workprogress/editservice/${id}`}>
                         <a className="a123">Edit</a>
                     </Link>
                 </div>
@@ -26,7 +26,7 @@ export default function Editordeletepage(){
                 <img className="icon123" src={require(`./delete.svg`).default}/>
                     <h1 className="h3size">Delete Service</h1>
                     <div className="content123">
-                    <Link className='link' to={`/workprogress/DeleteService/${id}`}>
+                    <Link className='link' to={`/workprogress/deleteservice/${id}`}>
                         <a className="a">Delete</a>
                         </Link>
                 </div>
