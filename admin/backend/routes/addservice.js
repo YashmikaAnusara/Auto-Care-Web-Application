@@ -76,7 +76,7 @@ router.route("/pending/edit/:id").put(async (req,res)=>{
         stype,
         addinfo,
     }
-    const update = await Staff.findOneAndUpdate({_id:id},updatedetails).then(()=>{
+    const update = await Pending.findOneAndUpdate({_id:id},updatedetails).then(()=>{
         res.status(200).send({status: "Service updated!!"})
     }).catch((err)=>{
         res.status(500).send({status: "Service not found!!"});

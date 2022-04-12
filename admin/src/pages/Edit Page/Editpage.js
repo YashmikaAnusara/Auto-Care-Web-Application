@@ -2,11 +2,9 @@ import React,{ useState,useEffect } from "react";
 import "./Editpage.css"
 import {useParams } from 'react-router';
 import { useHistory } from "react-router-dom";
-import { makeStyles,createTheme,ThemeProvider } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-import ButtonGroup from '@material-ui/core/ButtonGroup';
-import { green } from '@material-ui/core/colors';
 import axios from 'axios'
 
 const useStyles = makeStyles((theme) => ({
@@ -17,11 +15,6 @@ const useStyles = makeStyles((theme) => ({
     },
   }));
 
-  const theme = createTheme({
-    palette: {
-      primary: green,
-    },
-  });
 
 export default function Editpage(){
 
@@ -78,13 +71,14 @@ export default function Editpage(){
       }
 
       const fromhandler =(event)=>{
-        //event.preventDefault();
+        
         const data ={cname,cnic,cemail,vnumber,stype,addinfo}
         
           axios.put(`http://localhost:8070/service/pending/edit/${id}`,data)
           .then(res=>{
             alert("Service Updated Successfully");
             console.log(data);
+            history.push(`/workprogress/pendingservices`)
           })
           .catch(err=>{
             alert("Database Error");
@@ -110,11 +104,7 @@ export default function Editpage(){
               </div>
             <TextField id="addinfo" label="Additional Information" multiline rows={4} variant="outlined" className='text' value={addinfo} onChange={ainvalue} /><br></br>
             <div className="but">
-              <ThemeProvider theme={theme}>
-                <Button variant="contained" color="primary" >
-                 Update
-                </Button>
-              </ThemeProvider>
+                <Button type="submit" variant="contained" color="primary">Update</Button>
             </div>
             </form>
         </div>
