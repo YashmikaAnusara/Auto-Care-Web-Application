@@ -53,6 +53,36 @@ router.route("/pending").get((req,res)=>{
     })
 })
 
+router.route("/pending/:id").get((req,res)=>{
+    let id=req.params.id
+
+    Pending.findById({_id:id}).then((curds)=>{
+        res.json(curds)
+    }).catch((err)=>{
+        console.log(err);
+    })
+
+})
+
+router.route("/pending/edit/:id").put(async (req,res)=>{
+    
+    let id=req.params.id
+    
+    const stype = req.body.stype;
+    const addinfo = req.body.addinfo;
+
+
+    const updatedetails ={
+        stype,
+        addinfo,
+    }
+    const update = await Staff.findOneAndUpdate({_id:id},updatedetails).then(()=>{
+        res.status(200).send({status: "Service updated!!"})
+    }).catch((err)=>{
+        res.status(500).send({status: "Service not found!!"});
+    })
+})
+
 router.route("/pending/delete/:id").delete((req,res)=>{
     let id=req.params.id
 
