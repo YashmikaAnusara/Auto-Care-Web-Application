@@ -1,5 +1,5 @@
 import React,{ useState,useEffect } from "react";
-import "./Editpage.css"
+import "./Deletepage.css"
 import {useParams } from 'react-router';
 import { useHistory } from "react-router-dom";
 import { makeStyles } from '@material-ui/core/styles';
@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
   }));
 
 
-export default function Editpage(){
+export default function Deletepage(){
 
     const {id}=useParams();
     const classes = useStyles();
@@ -71,14 +71,10 @@ export default function Editpage(){
       }
 
       const fromhandler =(event)=>{
-        
-        const data ={cname,cnic,cemail,vnumber,stype,addinfo}
-        
-          axios.put(`http://localhost:8070/service/pending/edit/${id}`,data)
+          
+          axios.delete(`http://localhost:8070/service/pending/delete/${id}`)
           .then(res=>{
-            alert("Service Updated Successfully");
-            console.log(data);
-            history.push(`/workprogress/pendingservices`)
+            history.replace(`/workprogress/pendingservices`);
           })
           .catch(err=>{
             alert("Database Error");
@@ -87,24 +83,17 @@ export default function Editpage(){
 
     return(
         <div className="home">
-            <h1 className="heading">Edit Service </h1>
+            <h1 className="heading">Delete Service </h1>
             <form className={classes.root} autoComplete="false">
             <TextField InputProps={{readOnly: true,}} id="cname" label="Customer Name" variant="outlined" className='textb' value={cname} onChange={cnvalue} />
             <TextField InputProps={{readOnly: true,}} id="cnic" label="Customer NIC" variant="outlined" className='textb' value={cnic} onChange={cnivalue} />
             <TextField InputProps={{readOnly: true,}} id="cnic" label="Customer Email" variant="outlined" className='textb' value={cemail} onChange={cevalue} />
             <TextField InputProps={{readOnly: true,}} id="vnumber" label="Customer Vehicle Number" variant="outlined" className='textb' value={vnumber} onChange={vnvalue} />
-            <div className="dropd">
-              <div className="select">
-              <select id="etype" value={stype} onChange={stvalue} className='selectn' required>
-                  <option>Select the Service Type</option>
-                  <option value="Full Service">Full Service</option>
-                  <option value="Normal Service">Normal Service</option>
-              </select>
-              </div>
-              </div>
-            <TextField id="addinfo" label="Additional Information" multiline rows={4} variant="outlined" className='text' value={addinfo} onChange={ainvalue} /><br></br>
+            <TextField InputProps={{readOnly: true,}} id="vnumber" label="Service Type" variant="outlined" className='textb' value={stype} onChange={stvalue} />
+            <TextField InputProps={{readOnly: true,}} id="addinfo" label="Additional Information" multiline rows={4} variant="outlined" className='textb' value={addinfo} onChange={ainvalue} /><br></br>
+            
             <div className="but">
-                <Button type="submit" variant="contained" color="primary">Update</Button>
+                <Button onClick={fromhandler} variant="contained" color="primary">Delete</Button>
             </div>
             </form>
         </div>

@@ -10,6 +10,7 @@ import Inprogress from "./pages/Inprogress page/InprogressPage";
 import Startservice from "./pages/start service/Startservice";
 import Finishpage from "./pages/finish page/Finishpage";
 import Editpage from "./pages/Edit Page/Editpage";
+import Deletepage from "./pages/delete page/Deletepage";
 import Editordeletepage from "./pages/Edit or delete page/Edit or delete page";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
@@ -61,9 +62,9 @@ function App() {
           </Route>
 
           <Route exact path="/workprogress/deleteservice/:id">
-          <Editpage/>
+          <Deletepage/>
           </Route>
-
+          
        </Switch>
      </div>
     </Router>
