@@ -67,7 +67,7 @@ function App() {
           </Route>
 
           <Route exact path="/service_report">
-          <Sreportpage/>
+          <Sreportpage setSearch={setSearch} search={search}/>
           </Route>
           
        </Switch>
