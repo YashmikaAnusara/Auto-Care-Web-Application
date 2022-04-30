@@ -5,6 +5,8 @@ import { useHistory } from "react-router-dom";
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Checkbox from '@material-ui/core/Checkbox';
 import axios from 'axios'
 
 const useStyles = makeStyles((theme) => ({
@@ -90,8 +92,7 @@ export default function Deletepage(){
             <TextField InputProps={{readOnly: true,}} id="cnic" label="Customer Email" variant="outlined" className='textb' value={cemail} onChange={cevalue} />
             <TextField InputProps={{readOnly: true,}} id="vnumber" label="Customer Vehicle Number" variant="outlined" className='textb' value={vnumber} onChange={vnvalue} />
             <TextField InputProps={{readOnly: true,}} id="vnumber" label="Service Type" variant="outlined" className='textb' value={stype} onChange={stvalue} />
-            <TextField InputProps={{readOnly: true,}} id="addinfo" label="Additional Information" multiline rows={4} variant="outlined" className='textb' value={addinfo} onChange={ainvalue} /><br></br>
-            
+            <TextField InputProps={{readOnly: true,}} id="addinfo" label="Additional Information" multiline rows={1} variant="outlined" className='textb' value={addinfo} onChange={ainvalue} /><br></br>
             <div className="but">
                 <Button onClick={fromhandler} variant="contained" color="primary">Delete</Button>
             </div>

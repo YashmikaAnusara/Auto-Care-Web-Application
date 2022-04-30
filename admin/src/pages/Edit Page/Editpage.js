@@ -88,7 +88,7 @@ export default function Editpage(){
     return(
         <div className="home">
             <h1 className="heading">Edit Service </h1>
-            <form className={classes.root} autoComplete="false">
+            <form className={classes.root} autoComplete="false" onSubmit={fromhandler}>
             <TextField InputProps={{readOnly: true,}} id="cname" label="Customer Name" variant="outlined" className='textb' value={cname} onChange={cnvalue} />
             <TextField InputProps={{readOnly: true,}} id="cnic" label="Customer NIC" variant="outlined" className='textb' value={cnic} onChange={cnivalue} />
             <TextField InputProps={{readOnly: true,}} id="cnic" label="Customer Email" variant="outlined" className='textb' value={cemail} onChange={cevalue} />
