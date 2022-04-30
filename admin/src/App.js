@@ -12,6 +12,7 @@ import Finishpage from "./pages/finish page/Finishpage";
 import Editpage from "./pages/Edit Page/Editpage";
 import Deletepage from "./pages/delete page/Deletepage";
 import Editordeletepage from "./pages/Edit or delete page/Edit or delete page";
+import Sreportpage from "./pages/service report page/Sreportpage";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
@@ -63,6 +64,10 @@ function App() {
 
           <Route exact path="/workprogress/deleteservice/:id">
           <Deletepage/>
+          </Route>
+
+          <Route exact path="/service_report">
+          <Sreportpage/>
           </Route>
           
        </Switch>

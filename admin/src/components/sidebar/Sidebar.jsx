@@ -74,7 +74,7 @@ export default function Sidebar() {
                 View Work Progress
               </li>
             </Link>
-            <Link to="/" className="link">
+            <Link to="/service_report" className="link">
               <li className="sidebarListItem">
                 <BarChart className="sidebarIcon" />
                 Reports
