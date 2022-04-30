@@ -26,7 +26,7 @@ export default function Sreportpage({search,setSearch}){
       useEffect(() => {
         function getdetails() {
           axios
-            .get("http://localhost:8070/service/pending")
+            .get("http://localhost:8070/service/done")
             .then((res) => {
             //   console.log(res);
               setservicedetails(res.data);
@@ -56,6 +56,9 @@ export default function Sreportpage({search,setSearch}){
         <div className="home">
             
             <input placeholder="Enter Customer Vehicle Number " className="searchbox" type="search" onChange={(e) => setSearch(e.target.value)}/>
+            <div className="downloadpdf">
+            <Button color="primary" variant="contained" onClick={handlePrint}>Download PDF</Button>
+            </div>
             <div ref={componentRef}>
             <h1 className="heading">Service Report</h1>
             <table className="table-report">
@@ -76,7 +79,6 @@ export default function Sreportpage({search,setSearch}){
                 ).map(renderClass)}</tbody>
           </table>
             </div>
-            <Button color="primary" variant="contained" className="btn1234" onClick={handlePrint}>Download PDF</Button>
         </div>
     )
 }
