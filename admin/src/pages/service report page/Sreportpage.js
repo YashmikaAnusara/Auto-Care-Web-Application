@@ -65,7 +65,7 @@ export default function Sreportpage({search,setSearch}){
             <h1 className="heading">Service Report</h1>
             <table className="table-report">
             <thead>
-              <tr>
+              <tr className="trn">
                 <th>Customer Name</th>
                 <th>Customer Vehicle Number</th>
                 <th>Customer Email</th>
