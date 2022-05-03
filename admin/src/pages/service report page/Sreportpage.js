@@ -8,6 +8,8 @@ import "./Sreportpage.css"
 export default function Sreportpage({search,setSearch}){
 
     const componentRef = useRef();
+
+    
     const handlePrint = useReactToPrint({
     content: () => componentRef.current,
     });
@@ -57,7 +59,7 @@ export default function Sreportpage({search,setSearch}){
             
             <input placeholder="Enter Customer Vehicle Number " className="searchbox" type="search" onChange={(e) => setSearch(e.target.value)}/>
             <div className="downloadpdf">
-            <Button color="primary" variant="contained" onClick={handlePrint}>Download PDF</Button>
+            <Button color="primary" variant="contained" onClick={handlePrint}>Print Report</Button>
             </div>
             <div ref={componentRef}>
             <h1 className="heading">Service Report</h1>
