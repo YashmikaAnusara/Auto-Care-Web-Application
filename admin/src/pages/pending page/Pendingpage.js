@@ -66,7 +66,7 @@ export default function Pendingpage({search,setSearch}){
             {/* <div ref={componentRef}> */}
             <table className="table-report">
             <thead>
-              <tr>
+              <tr className="trn">
                 <th>Customer Name</th>
                 <th>Customer Vehicle Number</th>
                 <th>Customer Email</th>
