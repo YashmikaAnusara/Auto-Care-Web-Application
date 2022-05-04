@@ -71,14 +71,15 @@ export default function Editpage(){
       }
 
       const fromhandler =(event)=>{
-        
+        event.preventDefault();
         const data ={cname,cnic,cemail,vnumber,stype,addinfo}
         
           axios.put(`http://localhost:8070/service/pending/edit/${id}`,data)
           .then(res=>{
             alert("Service Updated Successfully");
-            console.log(data);
-            history.push(`/workprogress/pendingservices`)
+           
+            // console.log(data);
+            history.push(`/workprogress/pendingservices`);
           })
           .catch(err=>{
             alert("Database Error");
