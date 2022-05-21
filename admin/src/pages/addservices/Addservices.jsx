@@ -246,7 +246,7 @@ function TransitionRight(props) {
       <option value="Full Service">Full Service</option>
       <option value="Normal Service">Normal Service</option>
       </TextField>
-      <TextField id="addinfo" label="Enter the Employee Additional Information"  multiline rows={3} variant="outlined" className='size3' value={addinfo} onChange={(e) => {setaddinfo(e.target.value);}}/>
+      <TextField id="addinfo" label="Enter the Service Additional Information"  multiline rows={3} variant="outlined" className='size3' value={addinfo} onChange={(e) => {setaddinfo(e.target.value);}}/>
       </form>
       <div className="add">
       <LoadingButton onClick={submithandler} className="addbtn" color="primary" endIcon={<SendIcon />} variant="contained">Submit</LoadingButton>
